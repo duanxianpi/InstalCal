@@ -1,36 +1,45 @@
 import React from 'react';
 import "./upload.css";
 import { ChangeEvent, useRef, useState } from 'react';
+import { HiOutlineUpload } from 'react-icons/hi';
 
 
 export default function Upload() {
 
 
-    const [file, setFile] = useState();
-    const inputRef = useRef(null);
+  const [file, setFile] = useState();
+  const [fileURL, setFileURL] = useState();
+  const [uploaded, setUploaded] = useState(false);
 
-    const handleUploadClick = () => {
-      // 👇 We redirect the click event onto the hidden input element
-      inputRef.current?.click();
-    };
+  const inputRef = useRef(null);
 
-    const handleFileChange = (e) => {
-      if (!e.target.files) {
-        return;
-      }
+  const handleUploadClick = () => {
+    // 👇 We redirect the click event onto the hidden input element
+    inputRef.current?.click();
+  };
 
-      setFile(e.target.files[0]);
+  const handleFileChange = (e) => {
+    if (!e.target.files) {
+      return;
+    }
 
-      // 🚩 do the file upload here normally...
-    };
+    setFile(e.target.files[0]);
+    setFileURL(URL.createObjectURL(e.target.files[0]));
+
+    setUploaded(true);
+    // 🚩 do the file upload here normally...
+  };
   return (
     <div className="Upload">
-      <div>Upload a file:</div>
-
       {/* 👇 Our custom button to select and upload a file */}
-      <button onClick={handleUploadClick}>
-        {file ? `${file.name}` : 'Click to select'}
+      <button onClick={handleUploadClick} className="Button" style={{visibility:uploaded ? "hidden" : "visible"}}>
+      <HiOutlineUpload size={96} color="#2f2f2f"/>
+      <div style={{position:"absolute"}}>
+      Upload an Image Here (png, jpg)
+      (Max Size: 20MB)
+      </div>
       </button>
+      <img src={fileURL} className="img" style={{display:uploaded ? "block" : "none"}}/>
 
       {/* 👇 Notice the `display: hidden` on the input */}
       <input
@@ -39,7 +48,6 @@ export default function Upload() {
         onChange={handleFileChange}
         style={{ display: 'none' }}
       />
-
     </div>
 
   )
