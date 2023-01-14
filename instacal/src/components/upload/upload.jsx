@@ -31,7 +31,6 @@ export default function Upload() {
   };
   return (
     <div className="Upload">
-      {/* 👇 Our custom button to select and upload a file */}
       <button onClick={handleUploadClick} className="Button" style={{visibility:uploaded ? "hidden" : "visible"}}>
       <HiOutlineUpload size={96} color="#2f2f2f"/>
       <div style={{position:"absolute"}}>
@@ -39,7 +38,8 @@ export default function Upload() {
       (Max Size: 20MB)
       </div>
       </button>
-      <img src={fileURL} className="img" style={{display:uploaded ? "block" : "none"}}/>
+
+      <img src={fileURL} onClick={handleUploadClick} className="img" style={{display:uploaded ? "block" : "none"}}/>
 
       {/* 👇 Notice the `display: hidden` on the input */}
       <input
