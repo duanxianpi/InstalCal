@@ -1,6 +1,9 @@
 .Upload{
     display: flex;
     justify-content: center;
+    top:-10px;
+    position:relative;
+
 }
 
 .Button{
@@ -37,6 +40,7 @@
     font-size: 18px;
     color: white;
     font-weight: normal;
+    flex-direction: column;
 }
 
 .img{
@@ -47,9 +51,8 @@
     position: absolute;
 
 }
-
 .btn_ele{
-    top:180px;
+    top:200px;
     position:relative;
 }
 

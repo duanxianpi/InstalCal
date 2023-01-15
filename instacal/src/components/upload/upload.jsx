@@ -74,7 +74,7 @@ export default function Upload() {
         accept="image/png, image/jpeg"
       />
 
-      <Progress percent={progress} />
+      <Progress className="progress_bar" percent={progress} />
 
 
     </div>
