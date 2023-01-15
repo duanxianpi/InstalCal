@@ -57,7 +57,7 @@ export default function Upload() {
     <div className="Upload">
       <button onClick={handleUploadClick} className="Button" style={{visibility:uploaded ? "hidden" : "visible",display:uploaded ? "none" : "block"}}>
       <div className="btn_ele">
-      <HiOutlineUpload size={96} className="upload_icon" color="#2f2f2f"/>
+      <HiOutlineUpload size={96} className="upload_icon" color="#23333390"/>
       Upload an Image Here (png, jpg)
       (Max Size: 20MB)
       </div>
