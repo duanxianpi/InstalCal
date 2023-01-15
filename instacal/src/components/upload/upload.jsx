@@ -1,7 +1,7 @@
 import React from 'react';
 import "./upload.css";
-import { ChangeEvent, useRef, useState } from 'react';
-import {axios} from 'react';
+import { ChangeEvent, useRef, useState, useEffect } from 'react';
+import axios from "axios";
 import { HiOutlineUpload } from 'react-icons/hi';
 import { Progress } from 'antd';
 
@@ -31,9 +31,14 @@ export default function Upload() {
   };
 
   const uploadFile = (file) => {
-    const url = fileURL;
+    const url = "https://35.227.88.74:5002/upload";
     const formData = new FormData();
     formData.append("file", file);
+
+    if (file == undefined) {
+      return undefined;
+    }
+
     return axios.post(url, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -51,8 +56,12 @@ export default function Upload() {
     setFileURL(URL.createObjectURL(e.target.files[0]));
 
     setUploaded(true);
+   
     // 🚩 do the file upload here normally...
   };
+
+  useEffect(()=>{ uploadFile(file);},[file]);
+
   return (
     <div className="Upload">
       <button onClick={handleUploadClick} className="Button" style={{visibility:uploaded ? "hidden" : "visible",display:uploaded ? "none" : "block"}}>
