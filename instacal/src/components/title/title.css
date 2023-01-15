@@ -1,12 +1,10 @@
 #program_title{
-    position:relative;
     text-align:left;
     padding-left:25vw;
     font-size:48px;
 }
 
 #program_des{
-    position:absolute;
     padding-left:25vw;
     padding-right:25vw;
     font-weight:normal;
@@ -16,7 +14,7 @@
 
 }
 
-.wrapper{
+.Title{
     position:relative;
     color:white;
 
