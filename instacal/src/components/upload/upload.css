@@ -52,7 +52,7 @@ img:hover{
 }
 
 .img{
-    width: 750px;
+    width: 50vw;
     z-index: 100px;
     border-radius: 40px;
     left : 25vw;

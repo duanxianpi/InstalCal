@@ -15,14 +15,55 @@ export default function Description() {
     const [fat, setFat] = useState();
     const [protein, setProtein] = useState();
 
+    let totalString = "";
+    let totalCal = 0;
+    let totalCarbs = 0;
+    let totalFat = 0;
+    let totalProtein = 0;
+
+    function addString(str) {
+        totalString += (" + "+str)
+    }
+    // function addC(item, index, arr) {
+    //     console.log(str)
+    //     pData.res[pData.meal[str]].calories += totalCal
+    // }
+    
+    // function addCa(pData,str) {
+    //     pData.res[str].carbs += totalCarbs
+
+    // }
+    
+    // function addF(pData,str) {
+    //     pData.res[str].fat += totalFat
+    // }
+    
+    // function addP(pData,str) {
+    //     pData.res[str].protein += totalProtein
+    // }
+
     var updateS = function (msg, data) {
         var pData =JSON.parse(data)
         console.log(pData)
-            setName(pData.meal[0])
-            setCal(pData.res.calories)
-            setCarbs(pData.res.carbs)
-            setFat(pData.res.fat)
-            setProtein(pData.res.protein)
+        pData.meal.forEach(addString)
+        pData.meal.forEach((item, index, arr) => {
+            totalCal += pData.res[item].calories
+        })
+        pData.meal.forEach((item, index, arr) => {
+            totalCarbs += pData.res[item].carbs
+        })
+        pData.meal.forEach((item, index, arr) => {
+            totalFat += pData.res[item].fat
+        })
+        pData.meal.forEach((item, index, arr) => {
+            totalProtein += pData.res[item].protein
+        })
+
+            setName(totalString)
+            setCal(totalCal)
+            setCarbs(totalCarbs)
+            setFat(totalFat)
+            setProtein(totalProtein)
     };
 
     useEffect(() => {
