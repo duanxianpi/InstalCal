@@ -1,7 +1,6 @@
 import torch as th
 import cv2 as cv
 import os
-# import pandas as pd
 
 class FoodDetector:
     """
@@ -22,18 +21,18 @@ class FoodDetector:
     def label_to_class(self, label):
         return self.classes[int(label)]
     
-    def __call__(self, folder, input_image) -> any:
-        img_bgr = cv.imread((os.path.join(folder, input_image)))
+    def __call__(self, folder: str, input_image: str) -> list:
+        img_bgr = cv.imread((os.path.join(folder,input_image)))
         img_rgb = cv.cvtColor(img_bgr, cv.COLOR_BGR2RGB)
         results = self.model(img_rgb)
-        results.show()
 
-        # label = results.xyxyn[0][:, -1]
-        # prediction = self.label_to_class(label)
-        # animal = self.isAnimal(label)
+        df = results.pandas().xyxy[0]
 
-        # return (prediction, animal)
+        for food in df['name']:
+            self.meal.append(food)
 
-detector = FoodDetector(model_name='best.pt')
-# detector(folder=, input_image=)
+        return self.meal
+
+# detector = FoodDetector(model_name='best.pt')
+# print(detector(folder='./test_img/', input_image='IMG_0015.jpg'))
 
