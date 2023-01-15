@@ -43,6 +43,14 @@
     margin-bottom: 50px;
 }
 
+button:hover{
+    cursor:pointer;
+}
+
+img:hover{
+    cursor:pointer;
+}
+
 .img{
     width: 750px;
     z-index: 100px;
