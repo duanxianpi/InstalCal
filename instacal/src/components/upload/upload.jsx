@@ -1,9 +1,11 @@
 import React from 'react';
 import "./upload.css";
-import { ChangeEvent, useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import axios from "axios";
 import { HiOutlineUpload } from 'react-icons/hi';
 import { Progress } from 'antd';
+import PubSub from 'pubsub-js'
+
 
 
 export default function Upload() {
@@ -34,8 +36,8 @@ export default function Upload() {
     const url = "http://35.227.88.74:5002/upload";
     const formData = new FormData();
     formData.append("file", file);
-
-    if (file == undefined) {
+    
+    if (file === undefined) {
       return undefined;
     }
 
@@ -47,6 +49,26 @@ export default function Upload() {
     }).then(()=>{setProgress(100);})
   };
 
+  // const getFoodInfo = (file) => {
+  //   const url = "https://api.logmeal.es/v2/image/recognition/type/v1.0";
+  //   const formData = new FormData();
+  //   formData.append("image", file);
+    
+  //   if (file === undefined) {
+  //     return undefined;
+  //   }
+
+  //   return axios.post(url, formData, {
+  //     headers: {
+  //       "Content-Type": "multipart/form-data",
+  //       'accept': 'application/json',
+  //       'Authorization': 'Bearer cfe8e59521ef50fb3a3b5b568d85244f4be47290'
+  //     },
+  //     onUploadProgress,
+  //   }).then((response) => {
+  // })
+  // };
+
   const handleFileChange = (e) => {
     if (!e.target.files) {
       return;
@@ -56,11 +78,11 @@ export default function Upload() {
     setFileURL(URL.createObjectURL(e.target.files[0]));
 
     setUploaded(true);
-   
-    // 🚩 do the file upload here normally...
   };
 
   useEffect(()=>{ uploadFile(file);},[file]);
+
+
 
   return (
     <div className="Upload">
@@ -83,7 +105,7 @@ export default function Upload() {
         accept="image/png, image/jpeg"
       />
 
-      <Progress percent={progress} strokeWidth = {20} strokeColor={{ from: '#108ee9', to: '#87d068' }} className='progress_bar'/>
+      <Progress percent={progress} strokeWidth = {20} strokeColor={{ from: '#f0c27b', to: '#4b1248' }} className='progress_bar'/>
 
 
     </div>

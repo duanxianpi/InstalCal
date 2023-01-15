@@ -1,6 +1,8 @@
 import React from 'react';
 import './description.css';
+import { useRef, useState, useEffect } from 'react';
 
+import PubSub from 'pubsub-js'
 import data from './random.json';
 
 
@@ -9,7 +11,17 @@ import data from './random.json';
 export default function Description() {
 
 
-    function DesInput(props){
+    useEffect(() => {
+        var token = PubSub.subscribe('Update', (obj)=>{});
+
+        return () => {
+          // Clean up the subscription
+          PubSub.unsubscribe(token)
+        };
+      });
+      
+
+    function DesInput(){
 
         return(
             <div>
