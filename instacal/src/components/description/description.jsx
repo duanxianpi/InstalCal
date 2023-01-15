@@ -3,16 +3,30 @@ import './description.css';
 import { useRef, useState, useEffect } from 'react';
 
 import PubSub from 'pubsub-js'
-import data from './random.json';
 
 
 
 
 export default function Description() {
 
+    const [name, setName] = useState();
+    const [cal, setCal] = useState();
+    const [carbs, setCarbs] = useState();
+    const [fat, setFat] = useState();
+    const [protein, setProtein] = useState();
+
+    var updateS = function (msg, data) {
+        var pData =JSON.parse(data)
+        console.log(pData)
+            setName(pData.meal[0])
+            setCal(pData.res.calories)
+            setCarbs(pData.res.carbs)
+            setFat(pData.res.fat)
+            setProtein(pData.res.protein)
+    };
 
     useEffect(() => {
-        var token = PubSub.subscribe('Update', (obj)=>{});
+        var token = PubSub.subscribe('Update', updateS);
 
         return () => {
           // Clean up the subscription
@@ -25,10 +39,11 @@ export default function Description() {
 
         return(
             <div>
-                <h4 className="desItem"><u>Food:</u> {"Cookie"}</h4>
-                <h4 className="desItem"><u>Calories:</u> {data.foods["Cookie"].calories}</h4>
-                <h4 className="desItem"><u>Description: </u></h4>
-                <h5 id="desDes">{data.foods["Cookie"].des}</h5>
+                <h4 className="desItem"><u>Food:</u> {name}</h4>
+                <h4 className="desItem"><u>Calories:</u> {cal}</h4>
+                <h4 className="desItem"><u>Carbs:</u> {carbs}</h4>
+                <h4 className="desItem"><u>Fat:</u> {fat}</h4>
+                <h4 className="desItem"><u>Protein:</u> {protein}</h4>
             </div>
 
         )

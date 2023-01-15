@@ -46,7 +46,9 @@ export default function Upload() {
         "Content-Type": "multipart/form-data",
       },
       onUploadProgress,
-    }).then(()=>{setProgress(100);})
+    }).then((re)=>{setProgress(100);
+      console.log(re.data.data)
+    PubSub.publish("Update",re.data.data)})
   };
 
   // const getFoodInfo = (file) => {
