@@ -31,7 +31,7 @@ export default function Upload() {
   };
 
   const uploadFile = (file) => {
-    const url = "https://35.227.88.74:5002/upload";
+    const url = "http://35.227.88.74:5002/upload";
     const formData = new FormData();
     formData.append("file", file);
 
@@ -44,7 +44,7 @@ export default function Upload() {
         "Content-Type": "multipart/form-data",
       },
       onUploadProgress,
-    });
+    }).then(()=>{setProgress(100);})
   };
 
   const handleFileChange = (e) => {
@@ -83,7 +83,7 @@ export default function Upload() {
         accept="image/png, image/jpeg"
       />
 
-      <Progress percent={progress} strokeWidth = {20} className='progress_bar'/>
+      <Progress percent={progress} strokeWidth = {20} strokeColor={{ from: '#108ee9', to: '#87d068' }} className='progress_bar'/>
 
 
     </div>
