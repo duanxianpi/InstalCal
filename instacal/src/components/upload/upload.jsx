@@ -55,15 +55,9 @@ export default function Upload() {
   };
   return (
     <div className="Upload">
-<<<<<<< HEAD
-      <button onClick={handleUploadClick} className="Button" style={{visibility:uploaded ? "hidden" : "visible"}}>
-      <HiOutlineUpload size={96} className="upload_icon" color="#2f2f2f"/>
-      <div style={{position:"absolute"}} className="btn_ele">
-=======
       <button onClick={handleUploadClick} className="Button" style={{visibility:uploaded ? "hidden" : "visible",display:uploaded ? "none" : "block"}}>
       <div className="btn_ele">
       <HiOutlineUpload size={96} className="upload_icon" color="#2f2f2f"/>
->>>>>>> 0493b8e459b2b70480453a0c4a124db49ee4e16b
       Upload an Image Here (png, jpg)
       (Max Size: 20MB)
       </div>
@@ -80,11 +74,7 @@ export default function Upload() {
         accept="image/png, image/jpeg"
       />
 
-<<<<<<< HEAD
-      <Progress className="progress_bar" percent={progress} />
-=======
       <Progress percent={progress} strokeWidth = {20} className='progress_bar'/>
->>>>>>> 0493b8e459b2b70480453a0c4a124db49ee4e16b
 
 
     </div>
