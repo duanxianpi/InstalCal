@@ -27,8 +27,9 @@ export default function Description() {
             <div>
                 <h4 className="desItem"><u>Food:</u> {"Cookie"}</h4>
                 <h4 className="desItem"><u>Calories:</u> {data.foods["Cookie"].calories}</h4>
-                <h4 className="desItem"><u>Description: </u></h4>
-                <h5 id="desDes">{data.foods["Cookie"].des}</h5>
+                <h4 className="desItem"><u>Carbs:</u> {data.foods["Cookie"].calories}</h4>
+                <h4 className="desItem"><u>Protien:</u> {data.foods["Cookie"].calories}</h4>
+                <h4 className="desItem"><u>Fat:</u> {data.foods["Cookie"].calories}</h4>
             </div>
 
         )
