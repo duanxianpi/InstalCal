@@ -1,6 +1,9 @@
 .Upload{
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
 }
 
 .Button{
@@ -37,13 +40,34 @@
     font-size: 18px;
     color: white;
     font-weight: normal;
+    margin-bottom: 50px;
 }
 
 .img{
-    width: 50vw;
+    width: 750px;
     z-index: 100px;
     border-radius: 40px;
     left : 25vw;
-    position: absolute;
+    margin-bottom: 50px;
+}
 
+.btn_ele{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.upload_icon{
+    padding-bottom: 40px;
+}
+
+.progress_bar{
+    width: 50vw;
+}
+
+.ant-progress-text{
+    color:white !important;
 }

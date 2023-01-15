@@ -1,7 +1,9 @@
 import React from 'react';
 import "./upload.css";
 import { ChangeEvent, useRef, useState } from 'react';
+import {axios} from 'react';
 import { HiOutlineUpload } from 'react-icons/hi';
+import { Progress } from 'antd';
 
 
 export default function Upload() {
@@ -10,12 +12,34 @@ export default function Upload() {
   const [file, setFile] = useState();
   const [fileURL, setFileURL] = useState();
   const [uploaded, setUploaded] = useState(false);
+  const [progress, setProgress] = useState(0);
+
 
   const inputRef = useRef(null);
 
   const handleUploadClick = () => {
     // 👇 We redirect the click event onto the hidden input element
     inputRef.current?.click();
+  };
+
+  const onUploadProgress = (progressEvent) => {
+    const { loaded, total } = progressEvent;
+    let percent = Math.floor((loaded * 100) / total);
+    if (percent < 100) {
+      setProgress(percent);
+    }
+  };
+
+  const uploadFile = (file) => {
+    const url = fileURL;
+    const formData = new FormData();
+    formData.append("file", file);
+    return axios.post(url, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      onUploadProgress,
+    });
   };
 
   const handleFileChange = (e) => {
@@ -31,9 +55,9 @@ export default function Upload() {
   };
   return (
     <div className="Upload">
-      <button onClick={handleUploadClick} className="Button" style={{visibility:uploaded ? "hidden" : "visible"}}>
-      <HiOutlineUpload size={96} color="#2f2f2f"/>
-      <div style={{position:"absolute"}}>
+      <button onClick={handleUploadClick} className="Button" style={{visibility:uploaded ? "hidden" : "visible",display:uploaded ? "none" : "block"}}>
+      <div className="btn_ele">
+      <HiOutlineUpload size={96} className="upload_icon" color="#2f2f2f"/>
       Upload an Image Here (png, jpg)
       (Max Size: 20MB)
       </div>
@@ -47,11 +71,14 @@ export default function Upload() {
         ref={inputRef}
         onChange={handleFileChange}
         style={{ display: 'none' }}
+        accept="image/png, image/jpeg"
       />
+
+      <Progress percent={progress} strokeWidth = {20} className='progress_bar'/>
+
+
     </div>
 
   )
 
 }
-
-
