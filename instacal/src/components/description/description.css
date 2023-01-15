@@ -1,0 +1,26 @@
+.Food_Des{
+    position:relative;
+    top:50px;
+    color:white;
+    width:50vw;
+    padding-left:25vw;
+    padding-bottom:100px;
+}
+
+.des_ttl{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 40px;
+}
+
+.desItem{
+    font-size: 24px;
+    line-height: 20px;
+}
+
+#desDes{
+    font-weight: 200;
+    font-size:20px;
+    top:-10px;
+    position:relative;
+}

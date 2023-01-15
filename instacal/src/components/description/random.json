@@ -1,0 +1,23 @@
+{
+    "foods": {
+      "Pizza": {
+        "calories": 237
+      },
+      "Cookie": {
+        "calories": 49,
+        "des":"chocolate chunk"
+      },
+      "Rice": {
+        "calories": 204
+      },
+      "Kebab": {
+        "calories": 360
+      },
+      "General Tso's Chicken": {
+        "calories": 204
+      },
+      "Croissant": {
+        "calories": 231
+      }
+    }
+  }

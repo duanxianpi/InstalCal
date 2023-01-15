@@ -1,9 +1,9 @@
 .Upload{
     display: flex;
     justify-content: center;
+
     align-items: center;
     flex-direction: column;
-   
 }
 
 .Button{
@@ -41,6 +41,14 @@
     color: white;
     font-weight: normal;
     margin-bottom: 50px;
+}
+
+button:hover{
+    cursor:pointer;
+}
+
+img:hover{
+    cursor:pointer;
 }
 
 .img{
