@@ -1,6 +1,7 @@
 #program_title{
     text-align:left;
     padding-left:25vw;
+    padding-top: 20px;
     font-size:48px;
 }
 
@@ -8,14 +9,16 @@
     padding-left:25vw;
     padding-right:25vw;
     font-weight:normal;
-    top:60px;
     font-size:18px;
 
 
 }
 
 .Title{
+<<<<<<< HEAD
     position:relative;
+=======
+>>>>>>> 0493b8e459b2b70480453a0c4a124db49ee4e16b
     color:white;
 
 }
