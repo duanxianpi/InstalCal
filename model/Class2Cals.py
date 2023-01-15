@@ -20,13 +20,13 @@ class Class2cals:
         return self.nutrition
 
 
-cals = Class2cals('nutrition_info.json')
-detector = FoodDetector(model_name='best.pt')
+# cals = Class2cals('nutrition_info.json')
+# detector = FoodDetector(model_name='best.pt')
 
-meal = detector(folder='./test_img/', input_image='pizza.png')
-print(meal)
-res = cals(meal)
-print(res)
+# meal = detector(folder='./test_img/', input_image='pizza.png')
+# print(meal)
+# res = cals(meal)
+# print(res)
 
         
 
