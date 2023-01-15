@@ -1,0 +1,13 @@
+path: ../train_data/  # dataset root dir
+train: images/train/  # train images (relative to 'path') 128 images
+val: images/val/  # val images (relative to 'path') 128 images
+
+# Classes
+names:
+  0: cookie
+  1: pizza
+  2: kebab
+  3: rice
+  4: croissant
+  5: general tso chicken
+  
