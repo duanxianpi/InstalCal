@@ -1,3 +1,6 @@
+# InstaCal 
+Can't find information about what you're eating. Well, let the InstaCal application do it for you. This application processes the image you upload to provide data on what you eat. It tells you the calories, and a breif description about what the food is. Enhance your life by using this application in your everyday life!
+
 ## Inspiration
 We were inspired to build this app because we were interested in machine learning and bringing a more cohesive user experience into our current web development design skills, and believed that this would be an excellent opportunity to develop and try out some of those skills!
 
